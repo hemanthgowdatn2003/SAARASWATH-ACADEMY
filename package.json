@@ -1,0 +1,26 @@
+{
+  "name": "saaraswath-academy",
+  "version": "1.0.0",
+  "description": "Official Web Platform for Saaraswath IAS/KAS Academy, Mysuru",
+  "scripts": {
+    "client": "npm --prefix client run dev",
+    "server": "npm --prefix server run dev",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "install:all": "npm install && npm --prefix client install && npm --prefix server install",
+    "build:client": "npm --prefix client run build",
+    "start": "npm --prefix server start"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "keywords": [
+    "upsc",
+    "kas",
+    "mysuru",
+    "academy",
+    "civil-services",
+    "education"
+  ],
+  "author": "Saaraswath IAS/KAS Academy",
+  "license": "ISC"
+}

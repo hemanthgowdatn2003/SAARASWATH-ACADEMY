@@ -1,0 +1,77 @@
+:root {
+  /* Official Palette requested */
+  --color-white: #FFFFFF;
+  --color-soft-blue: #F3F8FF;
+  --color-light-cyan: #EAF7FF;
+  --color-primary-blue: #2457A7;
+  --color-deep-navy: #173568;
+  --color-gold: #E9AE20;
+  --color-light-gold: #FFF5D6;
+
+  /* Aliases for semantic usage */
+  --color-primary-900: #173568;
+  --color-primary-800: #1d427e;
+  --color-primary-700: #2457A7;
+  --color-primary-600: #2b67c4;
+  --color-primary-500: #3b82f6;
+  --color-primary-100: #EAF7FF;
+  --color-primary-50: #F3F8FF;
+
+  --color-accent-700: #c69114;
+  --color-accent-600: #E9AE20;
+  --color-accent-500: #f5b92e;
+  --color-accent-100: #FFF5D6;
+  --color-accent-50: #fffdf5;
+
+  /* WhatsApp Green */
+  --color-whatsapp: #25D366;
+  --color-whatsapp-hover: #20ba59;
+
+  /* Surface & Text */
+  --color-bg-light: #F3F8FF;
+  --color-bg-white: #FFFFFF;
+  --color-bg-card: #FFFFFF;
+  --color-bg-cyan: #EAF7FF;
+
+  --color-text-main: #173568;
+  --color-text-muted: #536b8e;
+  --color-text-light: #8297b4;
+  --color-text-white: #FFFFFF;
+
+  --color-border: #dce7f6;
+  --color-border-dark: #2457A7;
+  --color-border-gold: #E9AE20;
+
+  /* Status */
+  --color-success: #10b981;
+  --color-warning: #E9AE20;
+  --color-danger: #ef4444;
+  --color-info: #2457A7;
+
+  /* Fonts */
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-kannada: 'Noto Sans Kannada', 'Plus Jakarta Sans', sans-serif;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(23, 53, 104, 0.05);
+  --shadow-md: 0 6px 14px rgba(23, 53, 104, 0.08);
+  --shadow-lg: 0 12px 24px rgba(23, 53, 104, 0.12);
+  --shadow-xl: 0 20px 32px rgba(23, 53, 104, 0.14);
+  --shadow-gold: 0 8px 20px rgba(233, 174, 32, 0.25);
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Container */
+  --container-max: 1240px;
+}
