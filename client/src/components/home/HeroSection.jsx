@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle2, MessageCircle } from 'lucide-react';
 import { ACADEMY_INFO, getWhatsAppLink } from '../../utils/constants';
+import { getAssetUrl } from '../../utils/helpers';
 
 export const HeroSection = () => {
   return (
@@ -270,7 +271,7 @@ export const HeroSection = () => {
                 }}
               >
                 <img
-                  src="/images/logo/academy-logo-tight.png"
+                  src={getAssetUrl('/images/logo/academy-logo-tight.png')}
                   alt="Saaraswath IAS/KAS Academy Official Emblem"
                   style={{
                     maxHeight: '240px',

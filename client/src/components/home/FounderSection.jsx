@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { SectionTitle } from '../common/SectionTitle';
 import { Award, CheckCircle2, MessageCircle, ArrowRight } from 'lucide-react';
 import { ACADEMY_INFO, getWhatsAppLink } from '../../utils/constants';
+import { getAssetUrl } from '../../utils/helpers';
 
 export const FounderSection = () => {
   return (
@@ -46,7 +47,7 @@ export const FounderSection = () => {
                   }}
                   onError={(e) => {
                     e.target.onerror = null;
-                    e.target.src = '/images/founder/dr_vasanth_kumar.jpg';
+                    e.target.src = getAssetUrl('/images/founder/dr_vasanth_kumar.jpg');
                   }}
                 />
               </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Maximize2 } from 'lucide-react';
+import { getAssetUrl } from '../../utils/helpers';
 
 export const GalleryCard = ({ item, onOpen }) => {
   return (
@@ -15,13 +16,13 @@ export const GalleryCard = ({ item, onOpen }) => {
       }}
     >
       <img
-        src={item.image}
+        src={getAssetUrl(item.image)}
         alt={item.title || 'Saaraswath Academy'}
         style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.4s ease' }}
         className="gallery-thumb-img"
         onError={(e) => {
           e.target.onerror = null;
-          e.target.src = '/images/classroom/classroom_1.jpeg';
+          e.target.src = getAssetUrl('/images/classroom/classroom_1.jpeg');
         }}
       />
       <div

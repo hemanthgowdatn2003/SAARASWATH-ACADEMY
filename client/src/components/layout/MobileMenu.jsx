@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { X, Phone, Mail, Lock, ChevronDown, BookOpen, GraduationCap, FileText, CheckCircle2 } from 'lucide-react';
 import { ACADEMY_INFO, getWhatsAppLink } from '../../utils/constants';
+import { getAssetUrl } from '../../utils/helpers';
 
 export const MobileMenu = ({ isOpen, onClose }) => {
   const [examOpen, setExamOpen] = useState(false);
@@ -40,7 +41,7 @@ export const MobileMenu = ({ isOpen, onClose }) => {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem', borderBottom: '1px solid #e2e8f0', paddingBottom: '0.85rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
             <img
-              src="/images/logo/academy-logo-tight.png"
+              src={getAssetUrl('/images/logo/academy-logo-tight.png')}
               alt="Saaraswath Academy Logo"
               style={{ height: '52px', width: 'auto', objectFit: 'contain' }}
             />

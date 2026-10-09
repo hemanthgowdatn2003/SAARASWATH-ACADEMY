@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail, Clock, ArrowRight, Download } from 'lucide-react';
 import { ACADEMY_INFO, getWhatsAppLink } from '../../utils/constants';
+import { getAssetUrl } from '../../utils/helpers';
 
 export const Footer = () => {
   return (
@@ -19,7 +20,7 @@ export const Footer = () => {
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', marginBottom: '1.25rem' }}>
               <div style={{ backgroundColor: '#ffffff', padding: '6px 8px', borderRadius: '12px', display: 'flex', alignItems: 'center' }}>
                 <img
-                  src="/images/logo/academy-logo-tight.png"
+                  src={getAssetUrl('/images/logo/academy-logo-tight.png')}
                   alt="Saaraswath Academy Logo"
                   style={{ height: '62px', width: 'auto', objectFit: 'contain' }}
                 />

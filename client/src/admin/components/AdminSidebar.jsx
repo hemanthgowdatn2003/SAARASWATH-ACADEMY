@@ -15,6 +15,7 @@ import {
   ExternalLink
 } from 'lucide-react';
 import { useAuth } from '../../hooks/useAuth';
+import { getAssetUrl } from '../../utils/helpers';
 
 export const AdminSidebar = () => {
   const { logout } = useAuth();
@@ -54,7 +55,7 @@ export const AdminSidebar = () => {
       <div style={{ padding: '1.5rem', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
           <img
-            src="/images/logo/saaraswath_logo.png"
+            src={getAssetUrl('/images/logo/saaraswath_logo.png')}
             alt="Logo"
             style={{ width: '36px', height: '36px', objectFit: 'contain' }}
             onError={(e) => { e.target.style.display = 'none'; }}

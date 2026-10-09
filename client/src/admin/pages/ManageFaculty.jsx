@@ -3,6 +3,7 @@ import { AdminHeader } from '../components/AdminHeader';
 import { AdminTable } from '../components/AdminTable';
 import { facultyService } from '../../services/facultyService';
 import { Plus, Edit2, Trash2, RefreshCw, AlertCircle, X, User } from 'lucide-react';
+import { getAssetUrl } from '../../utils/helpers';
 
 export const ManageFaculty = () => {
   const [facultyList, setFacultyList] = useState([]);
@@ -120,10 +121,10 @@ export const ManageFaculty = () => {
       render: (row) => (
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
           <img
-            src={row.image || '/images/founder/dr-vasanth-kumar.jpg'}
+            src={getAssetUrl(row.image || '/images/founder/dr-vasanth-kumar.jpg')}
             alt={row.name}
             style={{ width: '42px', height: '42px', borderRadius: '50%', objectFit: 'cover', objectPosition: 'center 15%', border: '2px solid var(--color-gold)' }}
-            onError={(e) => { e.target.src = '/images/founder/dr-vasanth-kumar.jpg'; }}
+            onError={(e) => { e.target.src = getAssetUrl('/images/founder/dr-vasanth-kumar.jpg'); }}
           />
           <div>
             <strong style={{ color: 'var(--color-primary-900)' }}>{row.name}</strong>

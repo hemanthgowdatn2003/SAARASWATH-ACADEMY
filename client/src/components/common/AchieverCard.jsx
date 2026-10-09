@@ -1,5 +1,6 @@
 import React from 'react';
 import { Award, Quote } from 'lucide-react';
+import { getAssetUrl } from '../../utils/helpers';
 
 export const AchieverCard = ({ achiever }) => {
   return (
@@ -26,7 +27,7 @@ export const AchieverCard = ({ achiever }) => {
           backgroundColor: 'var(--color-light-cyan)'
         }}>
           <img
-            src={achiever.image}
+            src={getAssetUrl(achiever.image)}
             alt={achiever.name}
             style={{
               width: '100%',
@@ -36,7 +37,7 @@ export const AchieverCard = ({ achiever }) => {
             }}
             onError={(e) => {
               e.target.onerror = null;
-              e.target.src = '/images/founder/dr-vasanth-kumar.jpg';
+              e.target.src = getAssetUrl('/images/founder/dr-vasanth-kumar.jpg');
             }}
           />
         </div>

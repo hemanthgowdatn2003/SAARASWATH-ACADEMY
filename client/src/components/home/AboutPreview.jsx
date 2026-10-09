@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { SectionTitle } from '../common/SectionTitle';
 import { Target, Award, Compass, ArrowRight } from 'lucide-react';
 import { ACADEMY_INFO } from '../../utils/constants';
+import { getAssetUrl } from '../../utils/helpers';
 
 export const AboutPreview = () => {
   return (
@@ -38,7 +39,7 @@ export const AboutPreview = () => {
               }} />
 
               <img
-                src="/images/logo/academy-logo-tight.png"
+                src={getAssetUrl('/images/logo/academy-logo-tight.png')}
                 alt="Official Saaraswath IAS/KAS Academy Emblem"
                 style={{
                   maxHeight: '350px',

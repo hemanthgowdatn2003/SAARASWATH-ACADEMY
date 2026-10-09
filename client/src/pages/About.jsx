@@ -3,6 +3,7 @@ import { PageLayout } from '../components/layout/PageLayout';
 import { SEO } from '../components/common/SEO';
 import { SectionTitle } from '../components/common/SectionTitle';
 import { ACADEMY_INFO, getWhatsAppLink } from '../utils/constants';
+import { getAssetUrl } from '../utils/helpers';
 import { Target, Compass, BookOpen, Users, Award, MessageCircle, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -88,7 +89,7 @@ export const About = () => {
                 }} />
 
                 <img
-                  src="/images/logo/academy-logo-tight.png"
+                  src={getAssetUrl('/images/logo/academy-logo-tight.png')}
                   alt="Official Saaraswath IAS/KAS Academy Emblem"
                   style={{
                     maxHeight: '360px',

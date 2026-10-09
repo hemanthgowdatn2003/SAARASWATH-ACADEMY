@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { BookOpen, Award } from 'lucide-react';
+import { getAssetUrl } from '../../utils/helpers';
 
 export const FacultyCard = ({ faculty }) => {
   const [imgError, setImgError] = useState(false);
 
   // Default fallback if image cannot be loaded
-  const fallbackPlaceholder = '/images/founder/dr-vasanth-kumar.jpg';
+  const fallbackPlaceholder = getAssetUrl('/images/founder/dr-vasanth-kumar.jpg');
 
   return (
     <div
@@ -42,7 +43,7 @@ export const FacultyCard = ({ faculty }) => {
         borderBottom: '2px solid var(--color-light-gold)'
       }}>
         <img
-          src={imgError ? fallbackPlaceholder : (faculty.image || fallbackPlaceholder)}
+          src={imgError ? fallbackPlaceholder : getAssetUrl(faculty.image || fallbackPlaceholder)}
           alt={`${faculty.name} - ${faculty.specialization} Faculty`}
           style={{
             width: '100%',

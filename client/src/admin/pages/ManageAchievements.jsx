@@ -3,6 +3,7 @@ import { AdminHeader } from '../components/AdminHeader';
 import { AdminTable } from '../components/AdminTable';
 import { achievementService } from '../../services/achievementService';
 import { Plus, Edit2, Trash2, Award, RefreshCw, AlertCircle, X } from 'lucide-react';
+import { getAssetUrl } from '../../utils/helpers';
 
 export const ManageAchievements = () => {
   const [achievers, setAchievers] = useState([]);
@@ -103,10 +104,10 @@ export const ManageAchievements = () => {
       render: (row) => (
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
           <img
-            src={row.image || '/images/founder/dr-vasanth-kumar.jpg'}
+            src={getAssetUrl(row.image || '/images/founder/dr-vasanth-kumar.jpg')}
             alt={row.name}
             style={{ width: '40px', height: '40px', borderRadius: '50%', objectFit: 'cover' }}
-            onError={(e) => { e.target.src = '/images/founder/dr-vasanth-kumar.jpg'; }}
+            onError={(e) => { e.target.src = getAssetUrl('/images/founder/dr-vasanth-kumar.jpg'); }}
           />
           <div>
             <strong style={{ color: 'var(--color-primary-900)' }}>{row.name}</strong>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { AdminHeader } from '../components/AdminHeader';
 import { galleryService } from '../../services/galleryService';
 import { Plus, Edit2, Trash2, Image as ImageIcon, RefreshCw, AlertCircle, X } from 'lucide-react';
+import { getAssetUrl } from '../../utils/helpers';
 
 export const ManageGallery = () => {
   const [items, setItems] = useState([]);
@@ -148,10 +149,10 @@ export const ManageGallery = () => {
               <div key={item.id || item._id} style={{ backgroundColor: '#ffffff', borderRadius: 'var(--radius-md)', overflow: 'hidden', border: '1px solid #e2e8f0', boxShadow: 'var(--shadow-sm)' }}>
                 <div style={{ height: '180px', width: '100%', overflow: 'hidden', position: 'relative' }}>
                   <img
-                    src={item.image}
+                    src={getAssetUrl(item.image)}
                     alt={item.title}
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                    onError={(e) => { e.target.src = '/images/classroom/classroom_3.jpeg'; }}
+                    onError={(e) => { e.target.src = getAssetUrl('/images/classroom/classroom_3.jpeg'); }}
                   />
                   <span className="badge badge-gold" style={{ position: 'absolute', top: '10px', right: '10px' }}>
                     {item.category}

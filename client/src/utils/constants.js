@@ -1,3 +1,14 @@
+export const getAssetUrl = (path) => {
+  if (!path) return '';
+  if (path.startsWith('http://') || path.startsWith('https://') || path.startsWith('data:')) {
+    return path;
+  }
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  const base = import.meta.env.BASE_URL || '/';
+  const cleanBase = base.endsWith('/') ? base : `${base}/`;
+  return `${cleanBase}${cleanPath}`;
+};
+
 export const ACADEMY_INFO = {
   name: "Saaraswath IAS/KAS Academy",
   tagline: "The Success Blueprint",
@@ -11,9 +22,10 @@ export const ACADEMY_INFO = {
   whatsappFull: "+91 7619415566",
   phoneNumbers: ["7619415566", "7619615566"],
   email: "srisaaraswath@gmail.com",
-  logoPath: "/images/logo/academy-logo.png",
-  founderPhoto: "/images/founder/dr-vasanth-kumar.jpg",
-  brochurePath: "/brochures/academy-brochure.pdf",
+  logoPath: getAssetUrl("/images/logo/academy-logo.png"),
+  logoTight: getAssetUrl("/images/logo/academy-logo-tight.png"),
+  founderPhoto: getAssetUrl("/images/founder/dr-vasanth-kumar.jpg"),
+  brochurePath: getAssetUrl("/brochures/academy-brochure.pdf"),
   mapsUrl: "https://maps.google.com/?q=Saaraswath+IAS+KAS+Academy+Mysuru",
 };
 
@@ -120,7 +132,7 @@ export const INITIAL_FACULTY = [
     specialization: "Geography",
     experience: "10+ Years Mentoring",
     bio: "Subject matter expert covering Physical, Indian, and Karnataka Geography with map-oriented conceptual clarity.",
-    image: "/images/faculty/dr-krishna-kumar.jpg"
+    image: getAssetUrl("/images/faculty/dr-krishna-kumar.jpg")
   },
   {
     id: "f2",
@@ -129,7 +141,7 @@ export const INITIAL_FACULTY = [
     specialization: "Constitution and Governance",
     experience: "8+ Years Mentoring",
     bio: "Expert mentor for Indian Polity, Constitutional Provisions, and Administrative Governance structures.",
-    image: "/images/faculty/sri-akash.jpg"
+    image: getAssetUrl("/images/faculty/sri-akash.jpg")
   },
   {
     id: "f3",
@@ -138,7 +150,7 @@ export const INITIAL_FACULTY = [
     specialization: "Geography and Communication",
     experience: "8+ Years Mentoring",
     bio: "Specialist in Human & Economic Geography, Cartography, and Interpersonal Communication Skills for civil service aspirants.",
-    image: "/images/faculty/sri-raghu-m-raj.jpg"
+    image: getAssetUrl("/images/faculty/sri-raghu-m-raj.jpg")
   },
   {
     id: "f4",
@@ -147,7 +159,7 @@ export const INITIAL_FACULTY = [
     specialization: "Current Affairs and Content Writer",
     experience: "7+ Years Mentoring",
     bio: "Leads national and Karnataka state current affairs analysis, governmental reports, and editorial digests.",
-    image: "/images/faculty/sri-sandhya-g-s.jpg"
+    image: getAssetUrl("/images/faculty/sri-sandhya-g-s.jpg")
   },
   {
     id: "f5",
@@ -156,7 +168,7 @@ export const INITIAL_FACULTY = [
     specialization: "Current Affairs and Content Writer",
     experience: "6+ Years Mentoring",
     bio: "Dedicated specialist focusing on daily news evaluation, government policies, and structured notes formulation.",
-    image: "/images/faculty/sri-rachana.jpg"
+    image: getAssetUrl("/images/faculty/sri-rachana.jpg")
   },
   {
     id: "f6",
@@ -165,7 +177,7 @@ export const INITIAL_FACULTY = [
     specialization: "Indian National Movement and Karnataka History",
     experience: "9+ Years Mentoring",
     bio: "Authority on Modern Indian Freedom Movement, Princely Mysore, and Karnataka Unification history.",
-    image: "/images/faculty/sri-ashwini.jpg"
+    image: getAssetUrl("/images/faculty/sri-ashwini.jpg")
   },
   {
     id: "f7",
@@ -174,7 +186,7 @@ export const INITIAL_FACULTY = [
     specialization: "History and Culture",
     experience: "10+ Years Mentoring",
     bio: "In-depth pedagogue for Ancient & Medieval Indian History, Art, Architecture, and cultural heritage.",
-    image: "/images/faculty/sri-kumar.jpg"
+    image: getAssetUrl("/images/faculty/sri-kumar.jpg")
   },
   {
     id: "f8",
@@ -183,7 +195,7 @@ export const INITIAL_FACULTY = [
     specialization: "Modern History and Polity",
     experience: "11+ Years Mentoring",
     bio: "Experienced instructor connecting historical institutional developments directly with contemporary governance.",
-    image: "/images/faculty/sri-narasimha-murthy.jpg"
+    image: getAssetUrl("/images/faculty/sri-narasimha-murthy.jpg")
   },
   {
     id: "f9",
@@ -192,7 +204,7 @@ export const INITIAL_FACULTY = [
     specialization: "Science and Technology, Environment and Economy",
     experience: "7+ Years Mentoring",
     bio: "Specialist in applied science, climate treaties, biodiversity preservation, and macro-economic fundamentals.",
-    image: "/images/faculty/sri-pratheeksha.jpg"
+    image: getAssetUrl("/images/faculty/sri-pratheeksha.jpg")
   },
   {
     id: "f10",
@@ -201,7 +213,7 @@ export const INITIAL_FACULTY = [
     specialization: "General Mental Ability",
     experience: "15+ Years Mentoring",
     bio: "Master mentor in CSAT aptitude, quantitative analysis, data interpretation, and analytical logic.",
-    image: "/images/faculty/prof-g-chandrashekaran.jpg"
+    image: getAssetUrl("/images/faculty/prof-g-chandrashekaran.jpg")
   }
 ];
 
@@ -214,7 +226,7 @@ export const INITIAL_ACHIEVERS = [
     role: "Indian Administrative Service",
     center: "Saaraswath Study Centre, Mysuru",
     quote: "The personalized conceptual guidance and answer writing rigor at Saaraswath Academy shaped my mindset and path to clearing the prestigious Civil Services.",
-    image: "/images/achievements/sri-pooja.jpg"
+    image: getAssetUrl("/images/achievements/sri-pooja.jpg")
   },
   {
     id: "a2",
@@ -224,7 +236,7 @@ export const INITIAL_ACHIEVERS = [
     role: "Bengaluru CAR Officer",
     center: "Saaraswath Academy",
     quote: "Constant mentoring, test series, and timely mock evaluation helped me secure top rank.",
-    image: "/images/achievements/sri-dayanand.jpg"
+    image: getAssetUrl("/images/achievements/sri-dayanand.jpg")
   },
   {
     id: "a3",
@@ -234,7 +246,7 @@ export const INITIAL_ACHIEVERS = [
     role: "GPT - Biology, GHPS Hunasekatte, Shikaripura TQ, Shivamogga",
     center: "Saaraswath Academy",
     quote: "Dr. Vasanth Kumar Sir's guidance in biology and competitive pedagogy made all the difference in my selection.",
-    image: "/images/achievements/sri-dinesha-n-j.jpg"
+    image: getAssetUrl("/images/achievements/sri-dinesha-n-j.jpg")
   },
   {
     id: "a4",
@@ -244,7 +256,7 @@ export const INITIAL_ACHIEVERS = [
     role: "PSI Selection",
     center: "Saaraswath Academy",
     quote: "The comprehensive practice on paper 1 translation and general studies gave me a decisive edge.",
-    image: "/images/achievements/sri-krishna-g-b.jpg"
+    image: getAssetUrl("/images/achievements/sri-krishna-g-b.jpg")
   },
   {
     id: "a5",
@@ -254,7 +266,7 @@ export const INITIAL_ACHIEVERS = [
     role: "PSI Selection",
     center: "Saaraswath Academy",
     quote: "Strict discipline, continuous mock exams, and individual attention from mentors.",
-    image: "/images/achievements/sri-santhosh-bedre.jpg"
+    image: getAssetUrl("/images/achievements/sri-santhosh-bedre.jpg")
   }
 ];
 
@@ -263,42 +275,42 @@ export const INITIAL_GALLERY = [
     id: "g1",
     title: "Classroom Mentoring Session",
     category: "Classroom",
-    image: "/images/classroom/classroom_1.jpeg",
+    image: getAssetUrl("/images/classroom/classroom_1.jpeg"),
     description: "Interactive classroom discussion on Constitutional Governance."
   },
   {
     id: "g2",
     title: "Academy Felicitation & Achievers Meet",
     category: "Achievements",
-    image: "/images/achievements/event_1.jpeg",
+    image: getAssetUrl("/images/achievements/event_1.jpeg"),
     description: "Honoring our successful officers and rank holders."
   },
   {
     id: "g3",
     title: "Special Workshop on UPSC Strategy",
     category: "Workshops",
-    image: "/images/workshops/workshop_1.jpeg",
+    image: getAssetUrl("/images/workshops/workshop_1.jpeg"),
     description: "Guidance seminar delivered by guest civil servants and mentors."
   },
   {
     id: "g4",
     title: "Library & Study Hall Discussion",
     category: "Students",
-    image: "/images/students/student_1.jpeg",
+    image: getAssetUrl("/images/students/student_1.jpeg"),
     description: "Dedicated study environment with reference books and peaceful atmosphere."
   },
   {
     id: "g5",
     title: "Director Mentoring Aspirants",
     category: "Classroom",
-    image: "/images/classroom/classroom_2.jpeg",
+    image: getAssetUrl("/images/classroom/classroom_2.jpeg"),
     description: "Dr. Vasanth Kumar N conducting conceptual strategy breakdown."
   },
   {
     id: "g6",
     title: "Felicitation Ceremony at Mysuru",
     category: "Achievements",
-    image: "/images/achievements/event_2.jpeg",
+    image: getAssetUrl("/images/achievements/event_2.jpeg"),
     description: "Celebrating milestone ranks of our students."
   }
 ];

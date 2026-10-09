@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { Menu, ChevronDown, BookOpen, GraduationCap, FileText, Trophy, Image, Sparkles } from 'lucide-react';
 import { MobileMenu } from './MobileMenu';
+import { getAssetUrl } from '../../utils/helpers';
 
 export const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -72,7 +73,7 @@ export const Navbar = () => {
           >
             <div style={{ height: '62px', display: 'flex', alignItems: 'center' }}>
               <img
-                src="/images/logo/academy-logo-tight.png"
+                src={getAssetUrl('/images/logo/academy-logo-tight.png')}
                 alt="Saaraswath IAS/KAS Academy Official Logo"
                 style={{
                   height: '62px',
