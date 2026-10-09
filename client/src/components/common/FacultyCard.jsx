@@ -5,14 +5,16 @@ import { getAssetUrl } from '../../utils/helpers';
 export const FacultyCard = ({ faculty }) => {
   const [imgError, setImgError] = useState(false);
 
-  // Default fallback if image cannot be loaded
-  const fallbackPlaceholder = getAssetUrl('/images/founder/dr-vasanth-kumar.jpg');
+  // Compute initials for clean fallback if photo is unavailable
+  const initials = faculty.name
+    ? faculty.name.replace(/^(Dr\.|Prof\.|Sri)\s+/i, '').split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase()
+    : 'FA';
 
   return (
     <div
       style={{
         backgroundColor: '#FFFFFF',
-        borderRadius: 'var(--radius-lg)',
+        borderRadius: 'var(--radius-lg, 16px)',
         border: '1px solid var(--color-border)',
         overflow: 'hidden',
         boxShadow: 'var(--shadow-md)',
@@ -34,27 +36,59 @@ export const FacultyCard = ({ faculty }) => {
       <div style={{
         position: 'relative',
         width: '100%',
-        height: '260px',
-        backgroundColor: 'var(--color-light-cyan)',
+        height: '270px',
+        backgroundColor: 'var(--color-light-cyan, #EAF7FF)',
         overflow: 'hidden',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        borderBottom: '2px solid var(--color-light-gold)'
+        borderBottom: '2px solid var(--color-light-gold, #FFF5D6)'
       }}>
-        <img
-          src={imgError ? fallbackPlaceholder : getAssetUrl(faculty.image || fallbackPlaceholder)}
-          alt={`${faculty.name} - ${faculty.specialization} Faculty`}
-          style={{
+        {!imgError && faculty.image ? (
+          <img
+            src={getAssetUrl(faculty.image)}
+            alt={`${faculty.name} - ${faculty.specialization} Faculty`}
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              objectPosition: 'center 15%',
+              display: 'block',
+              transition: 'transform 0.4s ease'
+            }}
+            onError={() => setImgError(true)}
+          />
+        ) : (
+          <div style={{
             width: '100%',
             height: '100%',
-            objectFit: 'cover',
-            objectPosition: 'center 15%',
-            display: 'block',
-            transition: 'transform 0.4s ease'
-          }}
-          onError={() => setImgError(true)}
-        />
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            background: 'linear-gradient(135deg, var(--color-deep-navy, #173568) 0%, var(--color-primary-blue, #2457A7) 100%)',
+            color: '#FFFFFF'
+          }}>
+            <div style={{
+              width: '74px',
+              height: '74px',
+              borderRadius: '50%',
+              backgroundColor: 'rgba(233, 174, 32, 0.2)',
+              border: '2px solid var(--color-gold, #E9AE20)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '1.65rem',
+              fontWeight: 800,
+              color: 'var(--color-gold, #E9AE20)'
+            }}>
+              {initials}
+            </div>
+            <div style={{ fontSize: '0.85rem', fontWeight: 600, marginTop: '0.55rem', color: '#e2e8f0' }}>
+              {faculty.specialization}
+            </div>
+          </div>
+        )}
         
         {/* Role label overlay */}
         <div style={{
@@ -69,7 +103,7 @@ export const FacultyCard = ({ faculty }) => {
           <span style={{
             fontSize: '0.75rem',
             fontWeight: 700,
-            color: 'var(--color-gold)',
+            color: 'var(--color-gold, #E9AE20)',
             textTransform: 'uppercase',
             letterSpacing: '0.06em'
           }}>
