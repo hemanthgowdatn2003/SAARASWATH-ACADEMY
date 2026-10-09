@@ -1,72 +1,78 @@
 import React, { useState } from 'react';
-import { ACADEMY_INFO, getWhatsAppLink } from '../../utils/constants';
+import { ACADEMY_INFO } from '../../utils/constants';
 
 export const FloatingWhatsApp = ({ customMessage }) => {
-  const whatsappUrl = getWhatsAppLink(customMessage);
-  const callUrl = `tel:+91${ACADEMY_INFO.phoneNumbers[0]}`;
+  const defaultMsg = "Hello Saaraswath IAS/KAS Academy, I would like to know more about your UPSC/KAS coaching courses and admission details.";
+  const encodedText = encodeURIComponent(customMessage || defaultMsg);
+  const whatsappUrl = `https://wa.me/917619415566?text=${encodedText}`;
+  const callUrl = `tel:+917619415566`;
   const [hoveredBtn, setHoveredBtn] = useState(null);
 
   return (
-    <aside aria-label="Quick Contact Dock" style={{
-      position: 'fixed',
-      bottom: '24px',
-      right: '24px',
-      display: 'flex',
-      flexDirection: 'column',
-      gap: '12px',
-      alignItems: 'flex-end',
-      zIndex: 9999
-    }}>
-      {/* 1. Mobile Icon for Call */}
+    <aside
+      aria-label="Quick Contact Assistance"
+      className="floating-contact-dock"
+      style={{
+        position: 'fixed',
+        bottom: 'calc(18px + env(safe-area-inset-bottom, 0px))',
+        right: 'calc(16px + env(safe-area-inset-right, 0px))',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '8px',
+        alignItems: 'flex-end',
+        zIndex: 9999
+      }}
+    >
+      {/* 1. Phone Call Action (Compact 42px) */}
       <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
         {hoveredBtn === 'call' && (
-          <div style={{
-            position: 'absolute',
-            right: '68px',
-            backgroundColor: 'var(--color-deep-navy, #173568)',
-            color: '#ffffff',
-            padding: '6px 12px',
-            borderRadius: '20px',
-            fontSize: '0.82rem',
-            fontWeight: 700,
-            whiteSpace: 'nowrap',
-            boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
-            pointerEvents: 'none'
-          }}>
-            Call +91 {ACADEMY_INFO.phoneNumbers[0]}
+          <div
+            style={{
+              position: 'absolute',
+              right: '54px',
+              backgroundColor: 'var(--color-deep-navy, #173568)',
+              color: '#ffffff',
+              padding: '4px 10px',
+              borderRadius: '16px',
+              fontSize: '0.78rem',
+              fontWeight: 700,
+              whiteSpace: 'nowrap',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
+              pointerEvents: 'none'
+            }}
+          >
+            Call +91 7619415566
           </div>
         )}
         <a
           href={callUrl}
           aria-label="Call Saaraswath Academy"
-          title={`Call Saaraswath Academy: +91 ${ACADEMY_INFO.phoneNumbers[0]}`}
+          title="Call Saaraswath Academy: +91 7619415566"
           onMouseEnter={() => setHoveredBtn('call')}
           onMouseLeave={() => setHoveredBtn(null)}
           style={{
-            width: '56px',
-            height: '56px',
+            width: '42px',
+            height: '42px',
             backgroundColor: '#2457A7',
             borderRadius: '50%',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             color: '#ffffff',
-            boxShadow: '0 4px 16px rgba(36, 87, 167, 0.45)',
+            boxShadow: '0 4px 12px rgba(36, 87, 167, 0.35)',
             cursor: 'pointer',
-            transition: 'all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+            transition: 'transform 0.2s ease, box-shadow 0.2s ease',
             textDecoration: 'none',
-            border: '2px solid #FFFFFF',
-            transform: hoveredBtn === 'call' ? 'scale(1.1) translateY(-2px)' : 'scale(1)',
+            border: '2px solid #FFFFFF'
           }}
         >
-          {/* Mobile phone handset icon */}
           <svg
-            width="26"
-            height="26"
+            width="20"
+            height="20"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            strokeWidth="2.3"
+            strokeWidth="2.4"
             strokeLinecap="round"
             strokeLinejoin="round"
           >
@@ -75,22 +81,24 @@ export const FloatingWhatsApp = ({ customMessage }) => {
         </a>
       </div>
 
-      {/* 2. Official WhatsApp Icon */}
+      {/* 2. Official WhatsApp Action (Reduced to 48px) */}
       <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
         {hoveredBtn === 'whatsapp' && (
-          <div style={{
-            position: 'absolute',
-            right: '68px',
-            backgroundColor: '#075E54',
-            color: '#ffffff',
-            padding: '6px 12px',
-            borderRadius: '20px',
-            fontSize: '0.82rem',
-            fontWeight: 700,
-            whiteSpace: 'nowrap',
-            boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
-            pointerEvents: 'none'
-          }}>
+          <div
+            style={{
+              position: 'absolute',
+              right: '60px',
+              backgroundColor: '#075E54',
+              color: '#ffffff',
+              padding: '5px 12px',
+              borderRadius: '16px',
+              fontSize: '0.8rem',
+              fontWeight: 700,
+              whiteSpace: 'nowrap',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
+              pointerEvents: 'none'
+            }}
+          >
             Chat on WhatsApp
           </div>
         )}
@@ -99,30 +107,28 @@ export const FloatingWhatsApp = ({ customMessage }) => {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chat with Saaraswath Academy on WhatsApp"
-          title={`Chat with Saaraswath Academy on WhatsApp (+91 ${ACADEMY_INFO.whatsappNumber})`}
+          title="Chat with Saaraswath Academy on WhatsApp (+91 7619415566)"
           onMouseEnter={() => setHoveredBtn('whatsapp')}
           onMouseLeave={() => setHoveredBtn(null)}
           style={{
-            width: '56px',
-            height: '56px',
+            width: '48px',
+            height: '48px',
             backgroundColor: '#25D366',
             borderRadius: '50%',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             color: '#ffffff',
-            boxShadow: '0 4px 18px rgba(37, 211, 102, 0.5)',
+            boxShadow: '0 4px 16px rgba(37, 211, 102, 0.45)',
             cursor: 'pointer',
-            transition: 'all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+            transition: 'transform 0.2s ease, box-shadow 0.2s ease',
             textDecoration: 'none',
-            border: '2px solid #FFFFFF',
-            transform: hoveredBtn === 'whatsapp' ? 'scale(1.1) translateY(-2px)' : 'scale(1)',
+            border: '2px solid #FFFFFF'
           }}
         >
-          {/* Authentic WhatsApp SVG Icon */}
           <svg
-            width="32"
-            height="32"
+            width="28"
+            height="28"
             viewBox="0 0 24 24"
             fill="currentColor"
             style={{ fill: '#ffffff' }}
@@ -136,4 +142,3 @@ export const FloatingWhatsApp = ({ customMessage }) => {
 };
 
 export default FloatingWhatsApp;
-

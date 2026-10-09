@@ -7,6 +7,7 @@ import { getAssetUrl } from '../../utils/helpers';
 export const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [moreDropdownOpen, setMoreDropdownOpen] = useState(false);
+  const [logoError, setLogoError] = useState(false);
   const location = useLocation();
   const dropdownRef = useRef(null);
 
@@ -56,62 +57,55 @@ export const Navbar = () => {
             alignItems: 'center',
             justifyContent: 'space-between',
             padding: '0.65rem 1.5rem',
-            gap: '1.25rem',
-            minHeight: '74px'
+            gap: '1rem',
+            minHeight: '70px'
           }}
         >
-          {/* Left: Official Academy Emblem & Typography */}
+          {/* Left: Official Academy Logo & Typography */}
           <Link
             to="/"
+            className="navbar-brand-link"
             style={{
               display: 'flex',
               alignItems: 'center',
-              gap: '0.9rem',
               textDecoration: 'none',
               flexShrink: 0
             }}
           >
-            <div style={{ height: '62px', display: 'flex', alignItems: 'center' }}>
-              <img
-                src={getAssetUrl('/images/logo/academy-logo-tight.png')}
-                alt="Saaraswath IAS/KAS Academy Official Logo"
-                style={{
-                  height: '62px',
-                  width: 'auto',
-                  objectFit: 'contain',
-                  display: 'block',
-                  filter: 'drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3))'
-                }}
-              />
+            <div className="navbar-logo-wrap">
+              {!logoError ? (
+                <img
+                  src={getAssetUrl('/images/logo/academy-logo-tight.png')}
+                  alt="Saaraswath IAS/KAS Academy Official Logo"
+                  className="navbar-logo-img"
+                  onError={() => setLogoError(true)}
+                />
+              ) : (
+                <div
+                  className="navbar-logo-fallback"
+                  style={{
+                    width: '42px',
+                    height: '42px',
+                    backgroundColor: 'var(--color-gold, #E9AE20)',
+                    color: 'var(--color-deep-navy, #173568)',
+                    borderRadius: '8px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontWeight: 900,
+                    fontSize: '1.1rem'
+                  }}
+                >
+                  SA
+                </div>
+              )}
             </div>
-            <div>
-              <span
-                style={{
-                  fontFamily: 'var(--font-sans)',
-                  fontWeight: 800,
-                  fontSize: '1.38rem',
-                  color: '#FFFFFF',
-                  letterSpacing: '-0.02em',
-                  display: 'block',
-                  lineHeight: 1.15,
-                  whiteSpace: 'nowrap'
-                }}
-              >
+            <div className="navbar-brand-text">
+              <span className="navbar-brand-title">
                 SAARASWATH
               </span>
-              <span
-                style={{
-                  fontSize: '0.72rem',
-                  fontWeight: 700,
-                  color: 'var(--color-gold, #E9AE20)',
-                  letterSpacing: '0.12em',
-                  textTransform: 'uppercase',
-                  display: 'block',
-                  lineHeight: 1.2,
-                  whiteSpace: 'nowrap'
-                }}
-              >
-                IAS / KAS ACADEMY • MYSURU
+              <span className="navbar-brand-sub">
+                IAS / KAS ACADEMY
               </span>
             </div>
           </Link>

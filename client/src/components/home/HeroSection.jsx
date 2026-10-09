@@ -58,7 +58,7 @@ export const HeroSection = () => {
             <h1
               className="hero-heading"
               style={{
-                fontSize: '2.8rem',
+                fontSize: '2.6rem',
                 fontWeight: 800,
                 lineHeight: 1.2,
                 marginBottom: '0.85rem',
@@ -69,69 +69,49 @@ export const HeroSection = () => {
               Your Journey to Civil Services <span style={{ color: 'var(--color-primary-blue, #2457A7)' }}>Starts Here</span>
             </h1>
 
-            {/* Supporting Heading */}
-            <h2
-              style={{
-                fontSize: '1.28rem',
-                fontWeight: 700,
-                color: 'var(--color-gold, #E9AE20)',
-                marginBottom: '1.15rem',
-                letterSpacing: '-0.01em'
-              }}
-            >
-              UPSC & KAS Exam Preparation in Mysuru
-            </h2>
-
-            {/* Academy Introduction */}
+            {/* Supporting text */}
             <p
               style={{
-                fontSize: '1.02rem',
-                lineHeight: 1.65,
+                fontSize: '1.15rem',
+                lineHeight: 1.6,
                 color: 'var(--color-text-muted, #536b8e)',
                 marginBottom: '2rem',
-                maxWidth: '560px'
+                maxWidth: '540px'
               }}
             >
-              Saaraswath IAS/KAS Academy is committed to providing conceptual clarity, rigorous answer writing, standard reference coverage, and disciplined exam preparation under the direct leadership of <strong>{ACADEMY_INFO.founder}</strong>.
+              UPSC & KAS coaching and academic guidance in Mysuru.
             </p>
 
-            {/* Call-to-action buttons: All 3 buttons with identical height, radius, and alignment */}
+            {/* Hero Buttons: Exactly two prominent buttons */}
             <div
               className="hero-btn-row"
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '0.75rem',
+                gap: '1rem',
                 flexWrap: 'wrap',
-                marginBottom: '2.25rem'
+                marginBottom: '2rem'
               }}
             >
               <Link
                 to="/courses"
+                className="hero-btn-primary"
                 style={{
-                  height: '46px',
-                  padding: '0 1.35rem',
+                  height: '48px',
+                  padding: '0 1.6rem',
                   backgroundColor: 'var(--color-primary-blue, #2457A7)',
                   color: '#FFFFFF',
                   fontWeight: 700,
-                  fontSize: '0.92rem',
+                  fontSize: '0.96rem',
                   borderRadius: 'var(--radius-md, 10px)',
                   display: 'inline-flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  gap: '0.45rem',
+                  gap: '0.5rem',
                   whiteSpace: 'nowrap',
                   textDecoration: 'none',
                   boxShadow: '0 4px 14px rgba(36, 87, 167, 0.25)',
                   transition: 'all 0.2s ease'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = 'var(--color-deep-navy, #173568)';
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'var(--color-primary-blue, #2457A7)';
-                  e.currentTarget.style.transform = 'translateY(0)';
                 }}
               >
                 <span>Explore Courses</span>
@@ -140,98 +120,34 @@ export const HeroSection = () => {
 
               <Link
                 to="/admissions"
+                className="hero-btn-secondary"
                 style={{
-                  height: '46px',
-                  padding: '0 1.35rem',
+                  height: '48px',
+                  padding: '0 1.6rem',
                   backgroundColor: 'var(--color-gold, #E9AE20)',
                   color: 'var(--color-deep-navy, #173568)',
                   fontWeight: 700,
-                  fontSize: '0.92rem',
+                  fontSize: '0.96rem',
                   borderRadius: 'var(--radius-md, 10px)',
                   display: 'inline-flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  gap: '0.45rem',
+                  gap: '0.5rem',
                   whiteSpace: 'nowrap',
                   textDecoration: 'none',
                   boxShadow: '0 4px 14px rgba(233, 174, 32, 0.28)',
                   transition: 'all 0.2s ease'
                 }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = '#d99e15';
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'var(--color-gold, #E9AE20)';
-                  e.currentTarget.style.transform = 'translateY(0)';
-                }}
               >
                 Enquire Now
               </Link>
-
-              <a
-                href={getWhatsAppLink()}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  height: '46px',
-                  padding: '0 1.35rem',
-                  backgroundColor: '#25D366',
-                  color: '#FFFFFF',
-                  fontWeight: 700,
-                  fontSize: '0.92rem',
-                  borderRadius: 'var(--radius-md, 10px)',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: '0.45rem',
-                  whiteSpace: 'nowrap',
-                  textDecoration: 'none',
-                  boxShadow: '0 4px 14px rgba(37, 211, 102, 0.28)',
-                  transition: 'all 0.2s ease'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = '#20ba59';
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = '#25D366';
-                  e.currentTarget.style.transform = 'translateY(0)';
-                }}
-              >
-                <MessageCircle size={18} />
-                <span>Chat on WhatsApp</span>
-              </a>
-            </div>
-
-            {/* Micro value badges */}
-            <div
-              style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                gap: '1.25rem',
-                paddingTop: '1.25rem',
-                borderTop: '1px solid var(--color-border)'
-              }}
-            >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', fontSize: '0.86rem', color: 'var(--color-deep-navy, #173568)', fontWeight: 600 }}>
-                <CheckCircle2 size={17} color="var(--color-primary-blue, #2457A7)" />
-                <span>UPSC & KAS Prelims-cum-Mains</span>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', fontSize: '0.86rem', color: 'var(--color-deep-navy, #173568)', fontWeight: 600 }}>
-                <CheckCircle2 size={17} color="var(--color-primary-blue, #2457A7)" />
-                <span>Kannada & English Medium</span>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', fontSize: '0.86rem', color: 'var(--color-deep-navy, #173568)', fontWeight: 600 }}>
-                <CheckCircle2 size={17} color="var(--color-primary-blue, #2457A7)" />
-                <span>Personal Director Mentorship</span>
-              </div>
             </div>
           </div>
 
           {/* Right Column: Polished visual card showcasing the official academy logo */}
           <div style={{ display: 'flex', justifyContent: 'center' }}>
             <div
+              className="hero-logo-card"
               style={{
                 backgroundColor: '#FFFFFF',
                 borderRadius: 'var(--radius-xl, 24px)',
@@ -273,6 +189,7 @@ export const HeroSection = () => {
                 <img
                   src={getAssetUrl('/images/logo/academy-logo-tight.png')}
                   alt="Saaraswath IAS/KAS Academy Official Emblem"
+                  className="hero-logo-img"
                   style={{
                     maxHeight: '240px',
                     width: 'auto',
